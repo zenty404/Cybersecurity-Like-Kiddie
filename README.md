@@ -1,2 +1,3 @@
 # Cybersecurity-Like-Kiddie
-tools dev like a kiddie lol
+# Zenty-Tools
+Hacking tools like a kiddie lol
