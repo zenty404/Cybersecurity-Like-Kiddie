@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 #pip install python-nmap
 
+from concurrent.futures import thread
 import time
 from cgi import print_environ
 from tokenize import Pointfloat
@@ -36,7 +37,7 @@ $$ | \_/ $$ |\$$$$$$$ |$$ |$$ |  $$ |      $$ | \_/ $$ |\$$$$$$$\ $$ |  $$ |\$$$
     if n == '2':
         vuln()
     if n == '3':
-        expl()
+        explmenu()
     else :
         print('Please choose a nnumber between 1 ans 3')
 
@@ -62,11 +63,37 @@ def vuln():
         print('Please choose a number between 1 ans 3')
     main()
 
-def expl():
+def msf():
     print('This tool will start msfconsole and use a module so after this set all require things with $ show option ')
     time.sleep(5)
     os.system('/opt/metasploit-framework/bin/msfconsole ')
     os.system('use exploit/multi/http/atutor_sqli')
+
+def attackddos():
+    print("installing the script ...")
+    time.sleep(2)
+    os.system("pip install LITEDDOS")
+    url = input("\nPlease enter the target URL address : ")
+    port = input("\nPlease enter the target PORT : ")
+    thr = input("\nPlease enter the number of THREAD of you want to use : ")
+    print("So now type this ine a new terminal : python2 LITEDDOS.py " + url  + port + thr)
+
+def explmenu():
+    print("**********Welcome to the Exploit Menu**********")
+    print("***********************************************")
+    ip = input("\nPlease enter the target IP")
+    b = Write.Input("1- DDOS Attack\n2- In developpement\n3- In developpement\n\nPlease enter a number : ", Colors.blue_to_green, interval=0.0001)
+    if b == '1':
+        attackddos()
+    if b == '2':
+        os.system('nmap -sV --script http-passwd ' + ip)
+    if b == '3':
+        os.system('nmap -sV --script http-sql-injection ' + ip)
+    else :
+        print('Please choose a number between 1 ans 3')
+    main()
+
+
 
 
 if __name__ == "__main__":
