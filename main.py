@@ -10,15 +10,20 @@ from pystyle import Colorate, Colors, Write
 import os
 import socket 
 
-print("""__________             __          
+def main():
+    os.system('clear')
+    print("""
+======================================
+__________             __          
 \____    /____   _____/  |_ ___.__.
   /     // __ \ /    \   __<   |  |
  /     /\  ___/|   |  \  |  \___  |
 /_______ \___  >___|  /__|  / ____|
-        \/   \/     \/      \/    """)
-
-def main():
+        \/   \/     \/      \/    
+======================================        
+""")
     print("""
+======================================================================================
 $$\      $$\           $$\                 $$\      $$\                                         
 $$$\    $$$ |          \__|                $$$\    $$$ |                                        
 $$$$\  $$$$ | $$$$$$\  $$\ $$$$$$$\        $$$$\  $$$$ | $$$$$$\  $$$$$$$\  $$\   $$\   
@@ -27,16 +32,18 @@ $$ \$$$  $$ | $$$$$$$ |$$ |$$ |  $$ |      $$ \$$$  $$ |$$$$$$$$ |$$ |  $$ |$$ |
 $$ |\$  /$$ |$$  __$$ |$$ |$$ |  $$ |      $$ |\$  /$$ |$$   ____|$$ |  $$ |$$ |  $$ |
 $$ | \_/ $$ |\$$$$$$$ |$$ |$$ |  $$ |      $$ | \_/ $$ |\$$$$$$$\ $$ |  $$ |\$$$$$$  | 
 \__|     \__| \_______|\__|\__|  \__|      \__|     \__| \_______|\__|  \__| \______/  
-                                                                                                
-                                                                                                
+======================================================================================                                                                                                
                                                                                                 
 """)
     n = Write.Input("1- NetWork Scanner\n2- Vulnérabilities Detection\n3- Exploit\n\nPlease enter a number : ", Colors.blue_to_green, interval=0.0001)
     if n == '1':
+        os.system('clear')
         networkscan()
     if n == '2':
+        os.system('clear')
         vuln()
     if n == '3':
+        os.system('clear')
         explmenu()
     else :
         print('Please choose a nnumber between 1 ans 3')
@@ -52,12 +59,16 @@ def vuln():
     print("**********Welcome to the Vulnerabilities scanner**********")
     print("**********************************************************")
     ip = input("\nPlease enter the IP address : ")
+    os.system('clear')
     b = Write.Input("1- Vuln DOS\n2- Directory traversal\n3- SQL injection\n\nPlease enter a number : ", Colors.blue_to_green, interval=0.0001)
     if b == '1':
+        os.system('clear')
         os.system('nmap -v --script dos ' + ip)
     if b == '2':
+        os.system('clear')
         os.system('nmap -sV --script http-passwd ' + ip)
     if b == '3':
+        os.system('clear')
         os.system('nmap -sV --script http-sql-injection ' + ip)
     else :
         print('Please choose a number between 1 ans 3')
@@ -81,13 +92,17 @@ def attackddos():
 def explmenu():
     print("**********Welcome to the Exploit Menu**********")
     print("***********************************************")
-    ip = input("\nPlease enter the target IP")
-    b = Write.Input("1- DDOS Attack\n2- In developpement\n3- In developpement\n\nPlease enter a number : ", Colors.blue_to_green, interval=0.0001)
+    ip = input("\nPlease enter the target IP ")
+    os.system('clear')
+    b = Write.Input("1- DDOS Attack\n2- Directory Traversal\n3- SQL Injection\n\nPlease enter a number : ", Colors.blue_to_green, interval=0.0001)
     if b == '1':
+        os.system('clear')
         attackddos()
     if b == '2':
+        os.system('clear')
         os.system('nmap -sV --script http-passwd ' + ip)
     if b == '3':
+        os.system('clear')
         os.system('nmap -sV --script http-sql-injection ' + ip)
     else :
         print('Please choose a number between 1 ans 3')
